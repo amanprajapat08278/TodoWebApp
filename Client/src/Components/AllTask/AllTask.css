@@ -1,0 +1,29 @@
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    text-align: center;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+th {
+    padding: 2px;
+    background-color: yellow;
+    color: blue;
+    text-align: center;
+    font-weight: bold;
+}
+
+.taskBox {
+    width: 800px;
+    text-align: left;
+}
+
+#taskBox{
+    text-align: center;
+}

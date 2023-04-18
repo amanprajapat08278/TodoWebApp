@@ -1,0 +1,45 @@
+
+#navbarProfile {
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+
+.navbarIcons {
+    flex: 1;
+    text-align: center;
+}
+
+
+#navbarDP {
+    width: fit-content;
+    margin-right: 2.5rem;
+    flex: 0.3;
+    text-align: center;
+    position: sticky;
+    top: 10px;
+    left:10px;
+}
+
+
+#loginIcon{
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+#loginIcon:hover{
+   border: 1px solid green;
+}
+
+
+.navbar{
+    background-color: rgb(50, 50, 218);
+}
+

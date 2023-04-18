@@ -1,0 +1,32 @@
+
+
+#inputBox{
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid black;
+    margin-block: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.manageTwoInputs{
+    margin-inline: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#btntodo{
+    margin-right: 25%;
+    background-color: #115fbc;
+    margin-block: 6%;
+    border-radius: 5px;
+    width:fit-content;
+    padding: 3px 6px 3px 6px;   
+}
+
+#btntodo:hover{
+    background-color:#2679dd ;
+}
