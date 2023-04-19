@@ -67,8 +67,8 @@ const userLogin = async function (req, res) {
         sqlModel.query(qry, (err, data) => {
             if (err) { return res.status(400).send({ status: false, message: err.message }) }
             else {
-                if(data.length==0){ return res.status(404).send({ status: false, message: "User not found !" }) }
-    
+                if (data.length == 0) { return res.status(404).send({ status: false, message: "User not found !" }) }
+
                 if (data[0].password != password) { return res.status(400).send({ status: false, message: "Please enter a correct Password" }) }
                 let token = jwt.sign({ id: data[0].id, email: email }, "todo web app")
                 return res.status(200).send({ status: true, data: { token: token, user: data[0] } })
@@ -118,30 +118,36 @@ const updateUser = async (req, res) => {
 
         let qry = "update todouser set"
 
-        if(name){qry+= ` name='${name}'`}
+        if (name) { qry += ` name='${name}'` }
 
-        if(email){
-            if(name){qry+=","}
-            qry+= ` email='${email}'`
+        if (email) {
+            if (name) { qry += "," }
+            qry += ` email='${email}'`
         }
 
-        if(password){
-            if(name||email){qry+=","}
-            qry+= ` password='${password}'`
-        }
-        
-        if (files.length>0) {
-            if(name||email||password){qry+=","}
-            qry+= ` profile= '${await uploadFile(files[0])}'`
+        if (password) {
+            if (name || email) { qry += "," }
+            qry += ` password='${password}'`
         }
 
-        qry+=` where id=${id}`
+        if (files.length > 0) {
+            if (name || email || password) { qry += "," }
+            qry += ` profile= '${await uploadFile(files[0])}'`
+        }
 
-        sqlModel.query(qry, (err, data)=>{
+        qry += ` where id=${id}`
+
+        sqlModel.query(qry, (err, _) => {
             if (err) { return res.status(400).send({ status: false, message: err.message }) }
             else {
-                return res.status(200).send({ status: false, message: data }) }
+                sqlModel.query(`select * from todouser where id=${id}`, (err, data) => {
+                    if (err) { return res.status(400).send({ status: false, message: err.message }) }
+                    else {
+                        return res.status(200).send({ status: true, data: data[0] })
+                    }
+                })
             }
+        }
         )
 
     } catch (err) {

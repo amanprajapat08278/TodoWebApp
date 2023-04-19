@@ -1,14 +1,15 @@
 table {
     border: 1px solid black;
     border-collapse: collapse;
-    width: 100%;
+    width: 96%;
+    margin: 25px;
 }
 
-th,
-td {
+th,td {
     text-align: center;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
+    
 }
 
 th {
@@ -19,11 +20,45 @@ th {
     font-weight: bold;
 }
 
-.taskBox {
-    width: 800px;
-    text-align: left;
+
+
+#taskBox {
+    text-align: center;
 }
 
-#taskBox{
+.t-body {
+    border: none;
+}
+
+.u-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.update-btn {
+    background-color: rgb(119, 119, 198);
+    width: 5rem;
+    height: 1.8rem;
+    border-radius: 5px;
+}
+
+.task-status {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#notask {
+    margin-top: 8rem;
+    color: red;
     text-align: center;
+}
+
+.taskBox {
+    padding-left: 10px;
+    width: 800px;
+    text-align: left;
 }

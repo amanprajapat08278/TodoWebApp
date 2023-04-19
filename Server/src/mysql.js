@@ -11,6 +11,7 @@ const sqlModel = mysql.createConnection({
     database : process.env.database
 })
 
+// console.log(sqlModel)
 sqlModel.connect((err) => {
     if (err) { console.log(err.message) }
     else { console.log("MySQL Connected") }

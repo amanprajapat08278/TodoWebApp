@@ -19,7 +19,6 @@ const createTask = async (req, res) => {
         sqlModel.query(qry, (err, data) => {
             if (err) { return res.status(400).send({ status: false, message: err.message }) }
             else {
-                console.log(data)
                 return res.status(201).send({ status: true, data: data })
             }
         })

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import "./Login.css"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
 
 
 
@@ -9,8 +8,6 @@ function Login() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
-    const navigate = useNavigate()
 
     const loginFunction = (e) => {
         e.preventDefault()
@@ -25,7 +22,7 @@ function Login() {
             localStorage.setItem("token", res.data.data.token)
             localStorage.setItem("user", JSON.stringify(res.data.data.user))
 
-            navigate("/home")
+            window.location.replace("/home")
 
         }).catch((err) =>{alert(err.response.data.message)})
     }
@@ -57,7 +54,7 @@ function Login() {
                         <button type="submit" id='btn1' className="btn btn-primary">Login</button>
 
                         <div id="headingLogin">
-                            <a href='/Resister'>Resister</a>
+                            <a href='/resister'>Resister</a>
                         </div>
 
                     </form>

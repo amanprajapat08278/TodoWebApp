@@ -1,21 +1,31 @@
 const express = require("express")
 const router = express.Router()
+const { authentication, authorization } = require("../middleware/auth")
 const { createUser, getUser, userLogin, updateUser } = require("../controller/userController")
 
 const { createTask, getTask, updateTask, deleteTask } = require("../controller/TodoController")
 
 
+//user apis
+
 router.post("/user", createUser)
-router.get("/user/:id", getUser)
 
 router.post("/userLogin", userLogin)
 
-router.put("/user/:id", updateUser)
+router.get("/user/:id", authentication, authorization, getUser)
+
+router.put("/user/:id", authentication, authorization, updateUser)
 
 
-router.post("/task/:userId", createTask)
-router.get("/task/:userId", getTask)             
-router.put("/task/:userId/:id", updateTask)
-router.delete("/task/:userId/:id", deleteTask)
+// task apis
+
+router.post("/task/:userId", authentication, authorization, createTask)
+
+router.get("/task/:userId", authentication, authorization, getTask)
+
+router.put("/task/:userId/:id", authentication, authorization, updateTask)
+
+router.delete("/task/:userId/:id", authentication, authorization, deleteTask)
+
 
 module.exports = router

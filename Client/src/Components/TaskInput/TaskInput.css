@@ -1,32 +1,50 @@
-
-
-#inputBox{
-    width: fit-content;
+#inputBox {
     height: fit-content;
     border: 1px solid black;
-    margin-block: 20px;
+    margin: 25px;
     padding: 10px;
-    display: flex;
-    flex-direction: row;
-}
-
-.manageTwoInputs{
-    margin-inline: 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-#btntodo{
-    margin-right: 25%;
-    background-color: #115fbc;
-    margin-block: 6%;
-    border-radius: 5px;
-    width:fit-content;
-    padding: 3px 6px 3px 6px;   
+.manageTwoInputs {
+    margin-inline: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-#btntodo:hover{
-    background-color:#2679dd ;
+#btntodo {
+    margin-right: 25%;
+    background-color: #47ca75;
+    margin-block: 6%;
+    border-radius: 5px;
+    width: fit-content;
+
+}
+
+#btntodo:hover {
+    background-color: #26dda0;
+}
+
+
+#date {
+    float: right;
+    height: fit-content;
+    border: 1px solid black;
+    margin: 20px;
+    margin-left: 16rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#inputBigBox {
+    display: flex;
 }

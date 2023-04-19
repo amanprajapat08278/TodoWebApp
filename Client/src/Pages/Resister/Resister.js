@@ -4,17 +4,20 @@ import axios from 'axios'
 
 
 function Resister() {
-    const [fname, setFname] = useState("")
-    const [lname, setLname] = useState("")
+    const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [profile, setProfile] = useState("https://i.stack.imgur.com/dr5qp.jpg")
     const [password, setPassword] = useState("")
     const [pic, setPic] = useState({})
 
-    
+    const [checkImg, setCheckImg] = useState(false)
+
+   
+
     const resisterUser = (e) => {
         e.preventDefault();
 
+        if(!checkImg){return alert("Profile file is mandatory !")}
         const formData = new FormData();
         formData.append("file", pic)
         formData.append("fileName", pic.name)
@@ -26,22 +29,23 @@ function Resister() {
         };
 
         const options = {
-            fname: fname,
-            lname: lname,
-            title: document.getElementById("select").value,
+            name:name,
             email: email,
             password: password,
             profile: pic
         }
-        axios.post("http://localhost:4000/authors", options, config).then((res) => {
+
+
+        axios.post("http://localhost:4000/user", options, config).then(() => {
             alert("Account has created succesfully")
-            window.location.replace("/Login")
+            window.location.replace("/")
         }).catch((err) => alert(err.message))
     }
 
     const displayDP = (e) => {
         e.preventDefault()
 
+        setCheckImg(true)
         setPic(e.target.files[0])
 
         let imgFile = e.target.files[0]
@@ -75,7 +79,7 @@ function Resister() {
                     
                     <div className="resister-form">
                         <span>Name</span>
-                        <input type="text" className='inputs' placeholder='Write your name' required value={fname} onChange={(e) => setFname(e.target.value)} />
+                        <input type="text" className='inputs' placeholder='Write your name' required value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
                     
                     <div className="resister-form">
@@ -88,7 +92,7 @@ function Resister() {
                     </div>
 
                     <button type="submit" id='btn' className="btn btn-primary">Create Account</button>
-                    <a id='logins' href='/Login'>Login</a>
+                    <a id='logins' href='/'>Login</a>
                 </form>
             </div>
         </div>
